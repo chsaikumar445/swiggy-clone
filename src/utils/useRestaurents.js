@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { swiggy_api } from "../constants";
+import { swiggy_api_URL } from "../constants";
 
 const useRestaurents = () => {
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
@@ -11,7 +11,7 @@ const useRestaurents = () => {
 
   async function getrestaurents() {
     try {
-      const data = await fetch(swiggy_api);
+      const data = await fetch(swiggy_api_URL);
       const json = await data.json();
       //   console.log(json.data.cards[2].data.data);
 
