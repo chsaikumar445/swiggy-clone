@@ -24,7 +24,7 @@ const useRestaurentMenu = (resId) => {
         ?.map((x) => x.card)
         ?.find((x) => x && x.card["@type"] === RESTAURANT_TYPE_KEY)?.card
         ?.info || null;
-    // console.log(restaurantData);
+    console.log(restaurantData);
     restaurantData.img =
       (await IMG_CDN_URL) + restaurantData?.cloudinaryImageId;
     setRestaurentDetails(restaurantData);
