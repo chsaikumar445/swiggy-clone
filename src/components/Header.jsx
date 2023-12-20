@@ -44,7 +44,7 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li className="pr-4">
-            <Link to="cart">
+            <Link to="/cart">
               Cart(
               {cartItems.length === 0 ? "Empty" : cartItems.length + "   Items"}
               )
