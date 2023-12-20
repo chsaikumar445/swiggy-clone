@@ -2,16 +2,19 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data, dummy }) => {
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   // console.log(data);
-  const [showItems, setShowIndex] = useState(false);
+  const [toggleshowIndex, setToggleShowIndex] = useState(false);
+
   const handleClick = () => {
-    setShowIndex(!showItems);
+    setShowIndex();
+    setToggleShowIndex();
+    setToggleShowIndex(!toggleshowIndex);
   };
   return (
     <div>
       {/* Header */}
-      <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4">
+      <div className="max-w-5xl mx-auto my-4 bg-gray-50 shadow-lg p-4">
         <div
           className="flex justify-between cursor-pointer"
           onClick={handleClick}>
@@ -21,7 +24,7 @@ const RestaurantCategory = ({ data, dummy }) => {
           <span>⬇️</span>
         </div>
 
-        {showItems && <ItemList items={data.itemCards} dummy={dummy} />}
+        {showItems && <ItemList items={data.itemCards} />}
       </div>
     </div>
   );

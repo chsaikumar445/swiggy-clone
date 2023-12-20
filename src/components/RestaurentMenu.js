@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import { CDN_URL } from "../constants";
+import { CDN_URL } from "../utils/constants";
 import RestaurantCategory from "./RestaurantCategory";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -38,7 +38,7 @@ const RestaurantMenu = () => {
   // console.log(categories);
 
   return (
-    <div className="restaurant-menu">
+    <div className="restaurant-menu max-w-7xl">
       <div className="restaurent-info">
         <div className="image">
           <img src={CDN_URL + cloudinaryImageId} alt="img" />
@@ -61,8 +61,8 @@ const RestaurantMenu = () => {
             <RestaurantCategory
               key={category?.card?.card.title}
               data={category?.card?.card}
+              showItems={index === showIndex ? true : false}
               setShowIndex={() => setShowIndex(index)}
-              dummy={dummy}
             />
           );
         })}

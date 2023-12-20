@@ -1,4 +1,4 @@
-import { swiggy_api } from "../constants";
+import { swiggy_api } from "../utils/constants";
 import RestaurentCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -38,7 +38,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container flex flex-wrap items-center justify-center p-6 m-4 text-white max-w-6xl  mx-auto mr-auto bg-[#333]">
+      <div className="search-container  flex flex-wrap items-center justify-center p-4 text-white max-w-7xl  mx-auto mr-auto bg-[#4b4949]">
         <input
           className="w-1/2 p-4 m-4 border-1 border-r-8 text-black"
           type="text"
@@ -54,7 +54,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list flex flex-wrap justify-between items-center max-w-6xl  mx-auto mr-auto">
+      <div className="restaurant-list flex flex-wrap justify-between items-center max-w-7xl  mx-auto mr-auto">
         {searchResults === null ? (
           ""
         ) : searchResults.length == 0 ? (

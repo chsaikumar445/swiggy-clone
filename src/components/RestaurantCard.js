@@ -1,5 +1,5 @@
 //named import
-import { CDN_URL } from "../constants";
+import { CDN_URL } from "../utils/constants";
 
 const RestaurentCard = ({
   name,
@@ -8,7 +8,7 @@ const RestaurentCard = ({
   cloudinaryImageId,
 }) => {
   return (
-    <div className="card border-2 border-[#333] flex flex-col w-80 h-90 bg-grey m-4">
+    <div className="card border-2 border-[#333] flex flex-col  w-80 h-90 bg-grey m-4">
       <img
         className="h-1/3 w-1/1"
         src={CDN_URL + cloudinaryImageId}

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 //deafult import
 import Header from "./components/Header";
@@ -10,8 +10,16 @@ import Profile from "./components/ProfileClass";
 import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurentMenu";
 import Error from "./components/Error";
+import { Provider } from "react-redux";
 //named import
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useSearchParams,
+} from "react-router-dom";
+import UserContext from "./utils/UserContext";
+import appStore from "./utils/appStore";
 
 /**
  * Header
@@ -35,12 +43,21 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    const newname = "Sai kumar";
+    setName(newname);
+  }, []);
+
   return (
-    <React.Fragment>
-      <Header />
-      <Outlet />
-      <Footer />
-    </React.Fragment>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInuser: "sai" }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
