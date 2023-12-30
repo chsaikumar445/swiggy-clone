@@ -36,11 +36,15 @@ class UserClass extends React.Component {
     const { login, bio, avatar_url } = this.state.dataobj;
 
     return (
-      <div className="user-card">
-        <img src={avatar_url} alt="test" />
-        <h2>Name:{login}</h2>
-        <h2>Bio:{bio}</h2>
-        <h2>Contact:+13145742137</h2>
+      <div className="user-card  flex items-center justify-around">
+        <div className="w-20">
+          <img src={avatar_url} alt="test" />
+        </div>
+        <div>
+          <h2>Name:{login}</h2>
+          <h2>Bio:{bio}</h2>
+          <h2>Contact:+13145742137</h2>
+        </div>
       </div>
     );
   }
